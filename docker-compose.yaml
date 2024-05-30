@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  pymanyprojects:
+    build: .
+    container_name: mymanyprojectsfrontend
+    ports:
+      - '3000:4500'
+    stdin_open: true
+    tty: true
