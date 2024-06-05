@@ -10,6 +10,7 @@ const useLogout = () => {
             const response = await instance('/logout', {
                 withCredentials: true
             });
+            console.log("logout successful")
         } catch (err) {
             console.error(err);
         }

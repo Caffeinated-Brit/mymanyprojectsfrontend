@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect, FormEvent } from "react";
+import { useNavigate } from 'react-router-dom';
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { instance } from "../../api/axios";
@@ -9,6 +10,8 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = '/register';
 
 const Register: React.FC = () => {
+    const navigate = useNavigate();
+
     const userRef = useRef<HTMLInputElement>(null);
     const errRef = useRef<HTMLParagraphElement>(null);
 
@@ -79,6 +82,7 @@ const Register: React.FC = () => {
             setUser('');
             setPwd('');
             setMatchPwd('');
+            navigate('/dashboard');
         } catch (err: any) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
@@ -183,8 +187,7 @@ const Register: React.FC = () => {
                     <p>
                         Already registered?<br />
                         <span className="line">
-                            {/*put router link here*/}
-                            <a href="#">Sign In</a>
+                            <a href="/login">Sign In</a>
                         </span>
                     </p>
                 </section>

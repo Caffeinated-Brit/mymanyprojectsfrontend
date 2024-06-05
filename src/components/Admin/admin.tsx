@@ -9,7 +9,7 @@ const Admin = () => {
             <Users />
             <br />
             <div className="flexGrow">
-                <Link to="/">Home</Link>
+                <Link to="/Home">Home</Link>
             </div>
         </section>
     )

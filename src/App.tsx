@@ -22,15 +22,20 @@ function App() {
    return (
        <Routes>
            <Route path="/" element={<Layout />}>
-               {/* public */}
-               <Route path="login" element={<Login />} />
-               <Route path="register" element={<Register />} />
-               <Route path="unauthorized" element={<Unauthorized />} />
+
+               {/* default */}
+               <Route index element={<Home />} />
                <Route path="Home" element={<Home />} />
 
+               {/* public */}
+               <Route path="login" element={<Login />} />
+               <Route path="unauthorized" element={<Unauthorized />} />
 
                {/* private */}
                <Route element={<PersistLogin />}>
+                   <Route element={<RequireAuth allowedRoles={["admin"]}/>}>
+                       <Route path="register" element={<Register />} />
+                   </Route>
 
                    <Route element={<RequireAuth allowedRoles={["user", "admin"]}/>}>
                        <Route path="dashboard" element={<Dashboard />} />
