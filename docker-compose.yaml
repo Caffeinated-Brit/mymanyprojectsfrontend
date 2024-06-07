@@ -3,6 +3,8 @@ services:
   pymanyprojectsfrontend:
     build: .
     container_name: mymanyprojectsfrontend
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:3500
     ports:
       - '3000:3000'
     stdin_open: true
