@@ -41,17 +41,12 @@ const Login: React.FC = () => {
                 }
             );
 
-            //console.log(JSON.stringify("User: " + user));
-            //console.log(JSON.stringify("Password: " + pwd));
-            //console.log(JSON.stringify("accessToken: " + response?.data.accessToken));
-            //console.log(JSON.stringify("Role: " + response?.data.role));
-
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.role;
-
             setAuth({ user, pwd, roles, accessToken });
             setUser('');
             setPwd('');
+            //setAuth({ user: "", pwd: "", roles: [], accessToken: ""});
             navigate(from, {replace: true});
 
         } catch (err: any) {

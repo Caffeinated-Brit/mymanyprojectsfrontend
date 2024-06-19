@@ -13,11 +13,11 @@ const Dashboard = () => {
 
     return (
         <section>
-            <h1>Home</h1>
+            <h1>Dashboard</h1>
             <br />
             <p>You are logged in!</p>
             <br />
-            <Link to="/neditor">Go to the Editor page(under construction)</Link>
+            <Link to="/editor">Go to the Editor page(under construction)</Link>
             <br />
             <Link to="/admin">Go to the Admin page(must have admin privileges)</Link>
             <br />

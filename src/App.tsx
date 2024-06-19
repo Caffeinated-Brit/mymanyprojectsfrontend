@@ -1,6 +1,5 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+//import {  Route, Routes } from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard';
-import Preferences from './components/Preferences/Preferences';
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import {useState} from "react";
@@ -10,12 +9,13 @@ import Home from "./components/Home/Home";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import PersistLogin from "./components/PersistLogin/PersistLogin";
 import Admin from "./components/Admin/admin";
+const React = require('react');
+const { BrowserRouter, Route, Routes } = require('react-router-dom');
 
 
 
 
 function App() {
-    const [token, setToken] = useState();
 
 
    return (
