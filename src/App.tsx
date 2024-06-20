@@ -2,6 +2,7 @@
 import Dashboard from './components/Dashboard/Dashboard';
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
+import Projects from "./components/Projects/Projects";
 import {useState} from "react";
 import Layout from "./components/Layout/Layout";
 import Unauthorized from "./components/Unauthorized/Unauthorized";
@@ -17,21 +18,23 @@ const { BrowserRouter, Route, Routes } = require('react-router-dom');
 
 function App() {
 
-
    return (
        <Routes>
            <Route path="/" element={<Layout />}>
-
-               {/* default */}
-               <Route index element={<Home />} />
-               <Route path="Home" element={<Home />} />
-
-               {/* public */}
-               <Route path="login" element={<Login />} />
-               <Route path="unauthorized" element={<Unauthorized />} />
-
-               {/* private */}
                <Route element={<PersistLogin />}>
+
+                   {/* default */}
+                   <Route index element={<Home />} />
+                   <Route path="Home" element={<Home />} />
+
+
+                   {/* public */}
+                   <Route path="login" element={<Login />} />
+                   <Route path="unauthorized" element={<Unauthorized />} />
+                   <Route path="Projects" element={<Projects />} />
+
+
+                   {/* private */}
                    <Route element={<RequireAuth allowedRoles={["admin"]}/>}>
                        <Route path="register" element={<Register />} />
                    </Route>
@@ -45,8 +48,6 @@ function App() {
                    </Route>
 
                </Route>
-
-
            </Route>
        </Routes>
   );

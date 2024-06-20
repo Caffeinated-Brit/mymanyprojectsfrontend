@@ -1,7 +1,9 @@
 import {Outlet, useNavigate} from "react-router-dom"
 import useLogout from "../../hooks/useLogout";
-import useAuth from "../../hooks/useAuth";
 import {useEffect} from "react";
+
+//TODO: remove
+import useAuth from '../../hooks/useAuth'
 
 const Layout = () => {
     const navigate = useNavigate();
@@ -17,21 +19,33 @@ const Layout = () => {
         navigate('/login');
     };
 
+    //console.log(auth)
     // reloads the page for when the login button is used
     useEffect(() => {
     }, [auth.accessToken, navigate]);
 
 
-//TODO: when the page is reloaded the button defaults to login, perhaps use usestate
     return (
         <div>
             <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
                 <h1 style={{ textAlign: 'center' }}>My Many Projects</h1>
 
-                {auth.accessToken ? (
-                    <button style={{ position: 'absolute', right: '5%' }} onClick={signOut}>Logout</button>
-                ) : (
-                    <button style={{ position: 'absolute', right: '5%' }} onClick={handleLoginRedirect}>Login</button>
+
+                <div style={{ position: 'absolute', right: '5%' }}>
+
+                    {auth.accessToken ? (
+                        <button onClick={signOut}>Logout</button>
+                    ) : (
+                        <button onClick={handleLoginRedirect}>Login</button>
+                    )}
+                </div>
+
+
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+                {auth.accessToken && (
+                        <h3 style={{ fontSize: '1.5rem', justifyContent: 'center', position: 'relative' }}>Welcome {auth.user}</h3>
                 )}
             </div>
 

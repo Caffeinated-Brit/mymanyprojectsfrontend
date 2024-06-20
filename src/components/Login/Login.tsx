@@ -6,7 +6,7 @@ import { Link, useLocation, useNavigate} from "react-router-dom";
 const LOGIN_URL = '/auth';
 
 const Login: React.FC = () => {
-    const { setAuth } = useAuth();
+    const { auth, setAuth } = useAuth();
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -43,10 +43,13 @@ const Login: React.FC = () => {
 
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.role;
-            setAuth({ user, pwd, roles, accessToken });
+            //setAuth({ user, pwd, roles, accessToken });
+            setAuth({ user, pwd: "", roles, accessToken });
+
+            //console.log(user)
+            //console.log(pwd)
             setUser('');
             setPwd('');
-            //setAuth({ user: "", pwd: "", roles: [], accessToken: ""});
             navigate(from, {replace: true});
 
         } catch (err: any) {
