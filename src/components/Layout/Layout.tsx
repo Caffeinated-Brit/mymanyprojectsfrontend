@@ -3,7 +3,6 @@ import useLogout from "../../hooks/useLogout";
 import {useEffect} from "react";
 import './Layout.css';
 
-//TODO: remove
 import useAuth from '../../hooks/useAuth'
 
 const Layout = () => {
@@ -28,16 +27,16 @@ const Layout = () => {
 
     return (
         <div>
-            <div className="container">
+            <div className="top-container">
                 <h1 className="title">My Many Projects</h1>
             </div>
 
 
             <div className="button-container">
                 {auth.accessToken ? (
-                    <button onClick={signOut}>Logout</button>
+                    <button className="button-5" role="button" onClick={signOut}>Logout</button>
                 ) : (
-                    <button onClick={handleLoginRedirect}>Login</button>
+                    <button className="button-5" role="button" onClick={handleLoginRedirect}>Login</button>
                 )}
             </div>
 

@@ -1,12 +1,17 @@
 import { useNavigate, Link } from "react-router-dom";
+import './Projects.css';
 const Projects = () => {
 
     return (
-        <div style={styles.container}>
+        <div className="container">
             <Section
-                imageSrc="/images/logo512.png"
+                imageSrc="/images/cleaned_chairserver.jpg"
                 title="This Site"
-                text="This is the server this site right here your on now is hosted on."
+                text="This is the server this site right here your on now is hosted on. Yes yes I know a chair is not a
+                good place for a server, its temporary. This server is running Proxmox with this sites frontend in a
+                docker container and the backend in another it also hosts the user database and a bunch of other
+                personal stuff but thats all im willing to say publicly on the internet for security and even that may
+                be a bit too much."
                 imageOnLeft={true}
             />
             <Section
@@ -16,9 +21,10 @@ const Projects = () => {
                 imageOnLeft={false}
             />
             <Section
-                imageSrc="/images/logo512.png"
-                title="Title 3"
-                text="Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum."
+                imageSrc="/images/cleaned_bees2.jpg"
+                title="Ya like Bees?"
+                text="Not really computer science related but thought id share anyway since I like my bees and its
+                interesting."
                 imageOnLeft={true}
             />
             <Section
@@ -38,51 +44,17 @@ const Section: React.FC<{ imageSrc: string; title: string; text: string; imageOn
                                                                                                         imageOnLeft,
                                                                                                     }) => {
     return (
-        <div style={{ ...styles.section, flexDirection: imageOnLeft ? 'row' : 'row-reverse' }}>
-            <img src={imageSrc} alt={title} style={styles.image} />
-            <div style={styles.textContainer}>
-                <h2 style={styles.title}>{title}</h2>
-                <p style={styles.text}>{text}</p>
+        <div className={`section ${imageOnLeft ? '' : 'reverse'}`}>
+            <img src={imageSrc} alt={title} className="image" />
+            <div className="textContainer">
+                <h2 className="section-title">{title}</h2>
+                <p className="text">{text}</p>
             </div>
         </div>
     );
 };
 
-const styles = {
-    container: {
-        width: '100%',
-        padding: '20px',
-        borderRadius: '10px',
-        backgroundColor: '#f0f0f5',
-    },
-    section: {
-        display: 'flex',
-        alignItems: 'center' as 'center',
-        margin: '20px 0',
-        padding: '20px',
-        backgroundColor: '#fff',
-        borderRadius: '10px',
-        boxShadow: '0 0 20px rgba(0, 0, 0, 0.1)',
-    },
-    image: {
-        width: '30%',
-        borderRadius: '10px',
-        margin: '0 20px',
-    },
-    textContainer: {
-        flex: 1,
-    },
-    title: {
-        fontSize: '1.5em',
-        color: '#333',
-        margin: '0 0 10px 0',
-    },
-    text: {
-        fontSize: '1em',
-        color: '#555',
-        lineHeight: '1.6',
-    },
-};
+
 
 
 export default Projects

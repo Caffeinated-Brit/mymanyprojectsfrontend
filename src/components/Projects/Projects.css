@@ -1,0 +1,42 @@
+.container {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 127, 0, 1);
+    /*background-image: url("/public/images/background-image.jpg")*/
+}
+.section {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgba(242, 243, 244, 0.6);;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.section.reverse {
+    flex-direction: row-reverse;
+}
+
+.image {
+    width: 30%;
+    border-radius: 10px;
+    margin: 0 20px;
+}
+
+.textContainer {
+    flex: 1;
+}
+
+.section-title {
+    font-size: 1.5em;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.text {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+}
