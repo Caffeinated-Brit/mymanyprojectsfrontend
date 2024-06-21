@@ -4,25 +4,25 @@ const Projects = () => {
     return (
         <div style={styles.container}>
             <Section
-                imageSrc="https://via.placeholder.com/150"
-                title="Title 1"
-                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                imageSrc="/images/logo512.png"
+                title="This Site"
+                text="This is the server this site right here your on now is hosted on."
                 imageOnLeft={true}
             />
             <Section
-                imageSrc="https://via.placeholder.com/150"
+                imageSrc="/images/logo512.png"
                 title="Title 2"
                 text="Praesent libero. Sed cursus ante dapibus diam. Sed nisi."
                 imageOnLeft={false}
             />
             <Section
-                imageSrc="https://via.placeholder.com/150"
+                imageSrc="/images/logo512.png"
                 title="Title 3"
                 text="Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum."
                 imageOnLeft={true}
             />
             <Section
-                imageSrc="https://via.placeholder.com/150"
+                imageSrc="/images/logo512.png"
                 title="Title 4"
                 text="Praesent mauris. Fusce nec tellus sed augue semper porta."
                 imageOnLeft={false}

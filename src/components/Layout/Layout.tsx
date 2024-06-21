@@ -1,6 +1,7 @@
 import {Outlet, useNavigate} from "react-router-dom"
 import useLogout from "../../hooks/useLogout";
 import {useEffect} from "react";
+import './Layout.css';
 
 //TODO: remove
 import useAuth from '../../hooks/useAuth'
@@ -27,25 +28,25 @@ const Layout = () => {
 
     return (
         <div>
-            <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
-                <h1 style={{ textAlign: 'center' }}>My Many Projects</h1>
-
-
-                <div style={{ position: 'absolute', right: '5%' }}>
-
-                    {auth.accessToken ? (
-                        <button onClick={signOut}>Logout</button>
-                    ) : (
-                        <button onClick={handleLoginRedirect}>Login</button>
-                    )}
-                </div>
-
-
+            <div className="container">
+                <h1 className="title">My Many Projects</h1>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+
+            <div className="button-container">
+                {auth.accessToken ? (
+                    <button onClick={signOut}>Logout</button>
+                ) : (
+                    <button onClick={handleLoginRedirect}>Login</button>
+                )}
+            </div>
+
+            <h5 className="subtitle">by Josh</h5>
+
+
+            <div className="welcome-container">
                 {auth.accessToken && (
-                        <h3 style={{ fontSize: '1.5rem', justifyContent: 'center', position: 'relative' }}>Welcome {auth.user}</h3>
+                        <h3 className="welcome-message">Welcome {auth.user}</h3>
                 )}
             </div>
 

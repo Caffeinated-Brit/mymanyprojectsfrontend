@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.title {
+    text-align: center;
+    position: relative;
+}
+
+.button-container {
+    right: 0;
+    position: absolute;
+    margin-right: 5%;
+    margin-top: -70px;
+}
+
+.subtitle {
+    text-align: center;
+    margin: -10px 0 10px;
+}
+
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.welcome-message {
+    font-size: 1.5rem;
+    justify-content: center;
+    position: relative;
+}
