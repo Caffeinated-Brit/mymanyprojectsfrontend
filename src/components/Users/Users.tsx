@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 import { useNavigate, useLocation } from "react-router-dom";
-import './Users.css';
 
 interface User {
     id: number;
@@ -66,11 +65,11 @@ const Users = () => {
             {error ? (
                 <p>{error}</p>
             ) : users && users.length > 0 ? (
-                <ul>
+                <ul style={{ listStyle: 'none', padding: 0 }}>
                     {users.map((user) => (
-                        <li key={user.id} className="list-item">
+                        <li key={user.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                             {user.username}
-                            <button className="button" onClick={() => deleteUser(user.id)}>Delete</button>
+                            <button style={{ marginLeft: 'auto' }} onClick={() => deleteUser(user.id)}>Delete</button>
                         </li>
                     ))}
                 </ul>

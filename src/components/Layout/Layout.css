@@ -1,19 +1,10 @@
 .top-container {
-    display: flex;
     justify-content: center;
     position: relative;
 }
 
 .title {
     text-align: center;
-    position: relative;
-}
-
-.button-container {
-    right: 0;
-    position: absolute;
-    margin-right: 5%;
-    margin-top: -60px;
 }
 
 .subtitle {
@@ -22,7 +13,6 @@
 }
 
 .welcome-container {
-    display: flex;
     justify-content: center;
     position: relative;
 }
@@ -33,11 +23,41 @@
     position: relative;
 }
 
+.main-container {
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 127, 0, 1);
+}
+
+section {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgba(242, 243, 244, 0.6);;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* above is just layout */
+
+
+/*
+for button bellow
+ */
+
+.button-container {
+    position: absolute;
+    right: 0;
+    margin-right: 35px;
+    margin-top: -50px;
+}
 
 .button-5 {
     align-items: center;
     background-clip: padding-box;
-    background-color: #fa6400;
+    background-color: rgba(255, 127, 0, 1);
     border: 1px solid transparent;
     border-radius: .25rem;
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;

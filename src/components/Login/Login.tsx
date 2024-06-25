@@ -69,6 +69,7 @@ const Login: React.FC = () => {
     }
 
     return (
+        <div className="main-container">
                 <section>
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <h1>Sign In</h1>
@@ -102,6 +103,7 @@ const Login: React.FC = () => {
                         </span>
                     </p>
                 </section>
+        </div>
     )
 }
 

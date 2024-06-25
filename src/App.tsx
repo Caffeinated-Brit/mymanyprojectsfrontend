@@ -10,6 +10,7 @@ import Home from "./components/Home/Home";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import PersistLogin from "./components/PersistLogin/PersistLogin";
 import Admin from "./components/Admin/admin";
+import MealFinder from "./components/MealFinder/MealFinder";
 const React = require('react');
 const { BrowserRouter, Route, Routes } = require('react-router-dom');
 
@@ -32,6 +33,7 @@ function App() {
                    <Route path="login" element={<Login />} />
                    <Route path="unauthorized" element={<Unauthorized />} />
                    <Route path="Projects" element={<Projects />} />
+                   <Route path="MealFinder" element={<MealFinder />} />
 
 
                    {/* private */}

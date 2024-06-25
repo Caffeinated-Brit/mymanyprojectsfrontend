@@ -4,7 +4,6 @@ import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { instance } from "../../api/axios";
 
-
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = '/register';
@@ -51,21 +50,14 @@ const Register: React.FC = () => {
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        // if button enabled with JS hack
         const v1 = USER_REGEX.test(user);
         const v2 = PWD_REGEX.test(pwd);
         if (!v1 || !v2) {
             setErrMsg("Invalid Entry");
             return;
         }
-        //console.log(user, pwd)
-        //setSuccess(true)
-
 
         try {
-            console.log("Valid Entry");
-            //console.log(REGISTER_URL)
-            //console.log('Request URL:', `${instance.defaults.baseURL}${REGISTER_URL}`);
             const response = await instance.post(REGISTER_URL,
                 JSON.stringify({ user, pwd }),
                 {
@@ -73,12 +65,7 @@ const Register: React.FC = () => {
                     withCredentials: true
                 }
             );
-            console.log(response?.data);
-            //console.log(response?.accessToken);
-            //console.log(JSON.stringify(response))
             setSuccess(true);
-            //clear state and controlled inputs
-
             setUser('');
             setPwd('');
             setMatchPwd('');
@@ -98,7 +85,7 @@ const Register: React.FC = () => {
     }
 
     return (
-        <>
+        <div className="main-container">
             {success ? (
                 <section>
                     <h1>Success!</h1>
@@ -136,7 +123,6 @@ const Register: React.FC = () => {
                             Letters, numbers, underscores, hyphens allowed.
                         </p>
 
-
                         <label htmlFor="password">
                             Password:
                             <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
@@ -159,7 +145,6 @@ const Register: React.FC = () => {
                             Must include uppercase and lowercase letters, a number and a special character.<br />
                             Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
                         </p>
-
 
                         <label htmlFor="confirm_pwd">
                             Confirm Password:
@@ -192,8 +177,65 @@ const Register: React.FC = () => {
                     </p>
                 </section>
             )}
-        </>
+        </div>
     )
 }
 
 export default Register;
+
+const styles = {
+    mainContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+        backgroundColor: '#f4f4f9',
+    },
+    section: {
+        backgroundColor: '#fff',
+        padding: '20px',
+        borderRadius: '10px',
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+        width: '90%',
+        maxWidth: '400px',
+        margin: '20px',
+    },
+    errmsg: {
+        color: '#721c24',
+        backgroundColor: '#f8d7da',
+        padding: '10px',
+        borderRadius: '5px',
+        marginBottom: '10px',
+    },
+    offscreen: {
+        position: 'absolute',
+        left: '-9999px',
+    },
+    instructions: {
+        fontSize: '0.75rem',
+        borderRadius: '5px',
+        background: '#e0e0e0',
+        color: '#333',
+        padding: '5px',
+        position: 'absolute',
+        bottom: '-50px',
+        left: '0',
+    },
+    valid: {
+        color: '#28a745',
+        marginLeft: '10px',
+    },
+    hide: {
+        display: 'none',
+    },
+    invalid: {
+        color: '#dc3545',
+        marginLeft: '10px',
+    },
+    line: {
+        display: 'inline-block',
+        margin: '10px 0',
+    },
+};
+
