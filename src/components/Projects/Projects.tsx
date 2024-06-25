@@ -1,4 +1,13 @@
-import { useNavigate, Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+interface SectionProps {
+    imageSrc: string;
+    title: string;
+    text: string;
+    link: string;
+    imageOnLeft: boolean;
+}
 
 const Projects = () => {
     return (
@@ -6,49 +15,48 @@ const Projects = () => {
             <Section
                 imageSrc="/images/cleaned_chairserver.jpg"
                 title="This Site"
-                text="This is the server this site right here your on now is hosted on. Yes yes I know a chair is not a
-                good place for a server, its temporary. This server is running Proxmox with docker containers for this
-                sites frontend and backend, both of witch are behind nginx proxy manager for the ssl with a bunch of other
-                stuff like Home Assistant and some game servers."
+                text="This is the server this site right here your on now is hosted on. Yes yes I know a chair is not a good place for a server, its temporary. This server is running Proxmox with docker containers for this sites frontend and backend, both of witch are behind nginx proxy manager for the ssl with a bunch of other stuff like Home Assistant and some game servers."
+                link="/Home"
                 imageOnLeft={true}
             />
             <Section
                 imageSrc="/images/logo512.png"
-                title="Title 2"
-                text="Praesent libero. Sed cursus ante dapibus diam. Sed nisi."
+                title="MealFinder"
+                text="This is an old project I did for a class that you enter keywords like ingredients or health or diet labels, note there is limited api access so dont spam it."
+                link="/MealFinder"
                 imageOnLeft={false}
             />
             <Section
                 imageSrc="/images/cleaned_bees2.jpg"
                 title="Ya like Bees?"
-                text="Not really computer science related but thought id share anyway since I like my bees and its
-                interesting."
+                text="Not really computer science related but thought id share anyway since I like my bees and its interesting."
+                link=""
                 imageOnLeft={true}
             />
             <Section
                 imageSrc="/images/logo512.png"
                 title="Title 4"
                 text="Praesent mauris. Fusce nec tellus sed augue semper porta."
+                link="/title4-details"
                 imageOnLeft={false}
             />
         </div>
     );
 };
 
-const Section: React.FC<{ imageSrc: string; title: string; text: string; imageOnLeft: boolean }> = ({
-                                                                                                        imageSrc,
-                                                                                                        title,
-                                                                                                        text,
-                                                                                                        imageOnLeft,
-                                                                                                    }) => {
+const Section: React.FC<SectionProps> = ({ imageSrc, title, text, link, imageOnLeft }) => {
     return (
-        <div style={{
-            ...styles.section,
-            flexDirection: imageOnLeft ? 'row' : 'row-reverse',
-        }}>
+        <div
+            style={{
+                ...styles.section,
+                flexDirection: imageOnLeft ? 'row' : 'row-reverse',
+            }}
+        >
             <img src={imageSrc} alt={title} style={styles.image} />
             <div style={styles.textContainer}>
-                <h2 style={styles.sectionTitle}>{title}</h2>
+                <Link to={link} style={{ textDecoration: 'none' }}>
+                    <h2 style={styles.sectionTitle}>{title}</h2>
+                </Link>
                 <p style={styles.text}>{text}</p>
             </div>
         </div>

@@ -23,24 +23,18 @@ const Layout = () => {
     // reloads the page for when the login button is used
     useEffect(() => {
     }, [auth.accessToken, navigate]);
-    const linkStyle = {
-        display: 'block',
-        color: 'black',
-        textDecoration: 'none',
-        textAlign: 'center'
-    };
 
     return (
         <div>
 
             <div className="top-container">
-
                 <h1 style={{ textAlign: 'center' }}>
-                    <a href="home" style={{display: 'block',
+                    <a href="Home" style={{
                         color: 'black',
                         textDecoration: 'none',
                         textAlign: 'center'}}>My Many Projects</a>
                 </h1>
+
 
                 <div className="button-container">
                     {auth.accessToken ? (
